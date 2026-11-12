@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at center, #27225c 0%, #171439 60%, #110e2b 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.game {
+  background: rgba(43, 39, 87, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 28px;
+  padding: 36px 30px 28px 30px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+h1 span {
+  color: #38bdf8;
+  margin: 0 3px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.score {
+  background: rgba(40, 36, 82, 0.6);
+  padding: 12px 6px;
+  border-radius: 14px;
+  border: 1.5px solid transparent;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score .label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.score .value {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.score-x .label, .score-x .value { color: #f472b6; }
+.score-draw .label, .score-draw .value { color: #ffffff; }
+.score-o .label, .score-o .value { color: #38bdf8; }
+
+.score-x.active {
+  border-color: #ec4899;
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.4), inset 0 0 10px rgba(236, 72, 153, 0.2);
+}
+
+.score-o.active {
+  border-color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4), inset 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* Status */
+.status {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 20px;
+  min-height: 22px;
+}
+
+.status span {
+  font-weight: 700;
+}
+
+/* 3x3 Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  background: rgba(50, 45, 99, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.cell:hover:not(.taken) {
+  background: rgba(65, 59, 128, 0.65);
+  transform: scale(1.02);
+}
+
+.cell.x {
+  color: #ff5e9c;
+  text-shadow: 0 0 16px rgba(255, 94, 156, 0.85), 0 0 30px rgba(255, 94, 156, 0.4);
+}
+
+.cell.o {
+  color: #38bdf8;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.85), 0 0 30px rgba(56, 189, 248, 0.4);
+}
+
+/* Restart Button */
+.restart-btn {
+  background: linear-gradient(90deg, #f472b6 0%, #38bdf8 100%);
+  color: #0f172a;
+  font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
+  transition: all 0.2s ease;
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(244, 114, 182, 0.35);
+  opacity: 0.95;
+}
